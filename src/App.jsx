@@ -1,43 +1,21 @@
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from "./pages/Home"
+import About from "./pages/About"
+import Contact from "./pages/Contact"
+import Navbar from "./components/Navbar"
 
 function App() {
   return (
-    <div className="container">
-      <header>
-        <h1>Homestay Booking</h1>
-        <nav>
-          <a href="#">Trang chủ</a>
-          <a href="#">Phòng</a>
-          <a href="#">Liên hệ</a>
-        </nav>
-      </header>
+    <BrowserRouter>
+      <Navbar />
 
-      <section className="banner">
-        <h2>Chào mừng bạn đến với Homestay</h2>
-        <p>Đặt phòng nhanh chóng - Giá tốt nhất</p>
-        <button>Đặt ngay</button>
-      </section>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about-us" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
 
-      <section className="rooms">
-        <h2>Danh sách phòng</h2>
-
-        <div className="room-card">
-          <img src="https://via.placeholder.com/200" />
-          <h3>Phòng Deluxe</h3>
-          <p>Giá: 500.000đ/đêm</p>
-        </div>
-
-        <div className="room-card">
-          <img src="https://via.placeholder.com/200" />
-          <h3>Phòng VIP</h3>
-          <p>Giá: 1.000.000đ/đêm</p>
-        </div>
-      </section>
-
-      <footer>
-        <p>© 2026 Homestay Booking</p>
-      </footer>
-    </div>
+    </BrowserRouter>
   )
 }
 
